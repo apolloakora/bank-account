@@ -10,7 +10,7 @@ pipeline
         {
             steps
             {
-                withSonarQubeEnv( 'VMTEFMVP' )
+                withSonarQubeEnv( 'sonarqube' )
                 {
                     sh 'mvn clean package sonar:sonar'
                 }
