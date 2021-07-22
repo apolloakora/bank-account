@@ -37,6 +37,23 @@ pipeline
             }
         }
 
+        stage( "Push to Docker Registry" )
+        {
+            steps
+            {
+                script
+                {
+                    docker.withRegistry('http://172.27.78.33:5000')
+                    {
+                        def customImage = docker.build( "${env.JOB_NAME}:1.0.${env.BUILD_ID}-${env.GIT_COMMIT.take(7)}" )
+                        customImage.push()
+                        customImage.push( 'latest' )
+                    }
+                }
+            }
+
+        }
+
     }
 
 }
