@@ -7,6 +7,11 @@ pipeline
         docker { image 'maven:3.6.0-jdk-11' }
     }
 
+    environment {
+        SONAR_CONFIG_NAME = 'sonarqube-service'
+        SONAR_HOST_URL    = 'http://localhost:9000'
+    }
+
     stages
     {
 
