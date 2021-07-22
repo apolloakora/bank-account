@@ -10,7 +10,7 @@ pipeline
     stages
     {
 
-        stage( "Unit Tests with Software Profiling" )
+        stage( "Unit Tests with Software Profiling with SonarQube" )
         {
             steps
             {
